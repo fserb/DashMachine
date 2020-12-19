@@ -17,15 +17,17 @@ groups = admin_only
 | Variable     | Required | Description                                                                                                                         | Options                                                      |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | [App Name]   | Yes      | The name of your app.                                                                                                               | [App Name]                                                   |
-| prefix       | Yes      | The prefix for the app's url.                                                                                                       | web prefix, e.g. http:// or https://                         |
-| url          | Yes      | The url for your app.                                                                                                               | web url, e.g. myapp.com                                      |
+| url          | Yes      | The url for your app.                                                                                                               | web url, e.g. myapp.com or http://myapp.com                  |
 | open_in      | Yes      | open the app in the current tab, an iframe or a new tab                                                                             | iframe, new_tab, this_tab                                    |
 | icon         | Yes      | Icon for the dashboard.                                                                                                             | /static/images/icons/yourpicture.png, external link to image |
+| prefix       | No       | The prefix for the app's url.                                                                                                       | web prefix, e.g. http:// or https://                         |
 | sidebar_icon | No       | Icon for the sidenav.                                                                                                               | /static/images/icons/yourpicture.png, external link to image |
-| description  | No       | A short description for the app.                                                                                                    | HTML                                                       |
+| description  | No       | A short description for the app.                                                                                                    | HTML                                                         |
 | data_sources | No       | Data sources to be included on the app's card.*Note: you must have a data source set up in the config above this application entry. | comma separated string                                       |
 | tags         | No       | Optionally specify tags for organization on /home                                                                                   | comma separated string                                       |
 | groups       | No       | Optionally specify the access groups that can see this app.                                                                         | comma separated string                                       |
+
+
 
 ##### Collection
 These entries provide a card on the dashboard containing a list of links.
