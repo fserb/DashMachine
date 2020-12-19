@@ -151,12 +151,18 @@ def read_config():
             app.type = config[section].get("type", "app")
 
             app.prefix = config[section].get("prefix", None)
-            if app.type == "app" and not app.prefix:
-                return {"msg": f"Invalid Config: {section} does not contain prefix."}
 
             app.url = config[section].get("url", None)
             if app.type == "app" and not app.url:
                 return {"msg": f"Invalid Config: {section} does not contain url."}
+
+            if app.prefix is None:
+                idx = app.url.find("://")
+                if idx == -1:
+                    return {"msg": f"Invalid Config: {section} does not contain a full url nor a valid prefix."}
+                idx += 3
+                app.prefix = app.url[:idx]
+                app.url = app.url[idx:]
 
             app.icon = config[section].get("icon", None)
 
