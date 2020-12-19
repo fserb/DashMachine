@@ -51,6 +51,8 @@ def read_config():
 
             settings.background = config["Settings"].get("background", "None")
 
+            settings.default_open_in = config["Settings"].get("default_open_in", "this_tab")
+
             if "roles" in config["Settings"]:
                 settings.roles = config["Settings"]["roles"]
                 if "admin" not in settings.roles:
@@ -164,7 +166,7 @@ def read_config():
 
             app.description = config[section].get("description", None)
 
-            app.open_in = config[section].get("open_in", "this_tab")
+            app.open_in = config[section].get("open_in", settings.default_open_in)
 
             app.urls = config[section].get("urls", None)
 
